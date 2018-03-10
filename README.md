@@ -20,9 +20,9 @@ feel free to access [my portfolio](http://malcy.cf).
 2. `cd ./shopping-frontend`
 3. `ensure that the backend is running on http://localhost:3000`
 #### with angular-cli
-3. `npm install && ng serve`
-4. frontend application will be running on http://localhost:4200
+> 4. `npm install && ng serve`
+> 5. frontend application will be running on http://localhost:4200
 #### on a distinct server
-3. `copy the 'dist' folder and serve it on your desired server`
+> 4. `copy the 'dist' folder and serve it on your desired server`
 
 >source code is in the src folder
