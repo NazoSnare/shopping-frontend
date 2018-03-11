@@ -23,6 +23,20 @@ export class AuthService {
     map(res => res.json());
   }
 
+  getUserProfile(){
+    let headers = new Headers();
+    this.loadToken();
+    headers.append('Authorization', this.authToken);
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(`${this.domain}/api/v1/users/profile`, {headers:headers}).
+    map(res => res.json());
+  }
+
+  loadToken(){
+    const token = localStorage.getItem('id_token');
+    this.authToken = token;
+  }
+
   storeUserData(token, user){
     localStorage.setItem('id_token', token);
       localStorage.setItem('motho', JSON.stringify(user));
