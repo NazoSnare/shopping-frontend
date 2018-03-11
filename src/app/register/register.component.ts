@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
          }
          else{
            this.flashMessagesService.show(data.msg,
-            { cssClass: 'alert-success', timeout: this.messageTimeout });
+            { cssClass: 'alert-danger', timeout: this.messageTimeout });
          }
        });
 
