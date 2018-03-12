@@ -26,7 +26,7 @@
     </legend>
     <div class="form-group">
       <label>Amount</label>
-      <input type="number" [(ngModel)]="amount" name="amount" placeholder="Amount to topup" required >
+      <input type="number" [(ngModel)]="amount" step="0.10" value="0.00" name="amount" placeholder="Amount to topup" required >
     </div>
     <input type="submit" class="btn btn-success" value="Topup"/>
   </form>
