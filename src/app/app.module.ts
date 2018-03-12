@@ -28,7 +28,7 @@ const appRoutes: Routes = [
   {path:'register', component:RegisterComponent},
   {path:'profile', component:ProfileComponent},
   {path:'products', component:ProductsComponent, canActivate: [AuthGuard]},
-    {path:'product', component:ProductComponent, canActivate: [AuthGuard]}
+    {path:'products/:id', component:ProductComponent, canActivate: [AuthGuard]}
 ]
 
 

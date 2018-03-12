@@ -17,6 +17,24 @@ export class AuthService {
     map(res => res.json());
   }
 
+  topUpUser(amount){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.loadToken();
+    headers.append('Authorization', this.authToken);
+    return this.http.post(`${this.domain}/api/v1/users/topup`,{amount:amount}, {headers:headers}).
+    map(res => res.json());
+  }
+
+  getUserTransactions(){
+    let headers = new Headers();
+    this.loadToken();
+    headers.append('Authorization', this.authToken);
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(`${this.domain}/api/v1/transactions`, {headers:headers}).
+    map(res => res.json());
+  }
+
   loggedIn() {
   return tokenNotExpired();
 }
