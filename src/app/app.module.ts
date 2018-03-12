@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -16,13 +17,18 @@ import { ProductsComponent } from './products/products.component';
 
 import {ValidateService} from './validate.service';
 import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
+import { ProductComponent } from './product/product.component';
+import { PurchaseComponent } from './purchase/purchase.component';
+
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'profile', component:ProfileComponent},
-  {path:'products', component:ProductsComponent}
+  {path:'products', component:ProductsComponent, canActivate: [AuthGuard]},
+    {path:'product', component:ProductComponent, canActivate: [AuthGuard]}
 ]
 
 
@@ -34,7 +40,9 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductComponent,
+    PurchaseComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +51,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot()
   ],
-  providers: [ValidateService, AuthService],
+  providers: [ValidateService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
  messageTimeout= 3000;
   constructor( private flashMessagesService: FlashMessagesService,
-                       private authService: AuthService,
+                       public authService: AuthService,
                        private router:Router) { }
 
   ngOnInit() {

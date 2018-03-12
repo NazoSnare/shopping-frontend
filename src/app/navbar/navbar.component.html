@@ -20,20 +20,20 @@
                 <li  [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
                     <a class="page-scroll" [routerLink]="['/']">Home</a>
                 </li>
-                 <li  [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
+                 <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
                     <a class="page-scroll" [routerLink]="['/login']">Login</a>
                 </li>
-                <li  [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
+                <li *ngIf="!authService.loggedIn()"  [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
                     <a class="page-scroll" [routerLink]="['/register']">Register</a>
                 </li>
-                <li  [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
+                <li *ngIf="authService.loggedIn()"  [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
                     <a class="page-scroll" [routerLink]="['/products']">Products</a>
                 </li>
-                <li  [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
+                <li  *ngIf="authService.loggedIn()" [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">
                     <a class="page-scroll"[routerLink]="['/profile']">Profile</a>
                 </li>
-                <li>
-                    <a class="page-scroll" (click)="onLogout()">Logout</a>
+                <li *ngIf="authService.loggedIn()">
+                    <a class="page-scroll"  (click)="onLogout()">Logout</a>
                 </li>
             </ul>
         </div>
