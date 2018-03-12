@@ -17,6 +17,15 @@ export class AuthService {
     map(res => res.json());
   }
 
+  purchaseProduct(product){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.loadToken();
+    headers.append('Authorization', this.authToken);
+    return this.http.post(`${this.domain}/api/v1/products/purchase`,{product}, {headers:headers}).
+    map(res => res.json());
+  }
+
   topUpUser(amount){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -55,6 +64,10 @@ export class AuthService {
     map(res => res.json());
   }
 
+  getToken(){
+    return this.authToken;
+  }
+
   loadToken(){
     const token = localStorage.getItem('token');
     this.authToken = token;
@@ -73,9 +86,6 @@ export class AuthService {
     localStorage.clear();
   }
 
-  purchaseProduct(product){
-
-  }
 
 
 }

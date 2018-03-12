@@ -10,7 +10,7 @@
             email: {{ user.email }}
           </li>
           <li class="list-group-item">
-            balance: {{ user.balance }}
+            balance: R {{ user.balance }}
           </li>
           <li class="list-group-item">
             reference: {{ user._id }}
@@ -52,9 +52,13 @@
             date: {{transaction.data.date}}
           </li>
         </div>
-        <div  *ngIf="!transaction.type =='Top up' ">
+        <div  *ngIf="transaction.type !='Top up' ">
           <li class="list-group-item">
-            purchases
+            Amount: R {{transaction.data.amount}} <br />
+            Product: {{transaction.data.product.name}} - {{transaction.data.product._id}} <br />
+            Balance Before: R {{transaction.data.balanceBefore}} <br />
+            Balance After: R {{transaction.data.balanceAfter}} <br />
+            date: {{transaction.data.date}}
           </li>
         </div>
 

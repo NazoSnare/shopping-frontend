@@ -20,6 +20,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { ProductComponent } from './product/product.component';
 import { PurchaseComponent } from './purchase/purchase.component';
+import { ProductsService } from './products.service';
 
 
 const appRoutes: Routes = [
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot()
   ],
-  providers: [ValidateService, AuthService, AuthGuard],
+  providers: [ValidateService, AuthService, AuthGuard, ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
