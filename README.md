@@ -5,7 +5,6 @@ Angular2 aka 5 frontend for a simple assessment shopping system
 
 ### welcome to the repository
 
-feel free to access [my portfolio](http://malcy.cf).
 
 > ## Prerequisites:
 * nodejs
